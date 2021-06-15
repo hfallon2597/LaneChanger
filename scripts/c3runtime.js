@@ -3048,6 +3048,8 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.Browser,
 		C3.Plugins.PlatformInfo,
 		C3.Behaviors.Fade,
+		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Text.Acts.SetVisible,
@@ -3056,9 +3058,9 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.System.Exps.choose,
 		C3.Behaviors.Fade.Acts.RestartFade,
+		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.PlatformInfo.Cnds.IsOnMobile,
-		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.System.Acts.SetVar,
@@ -3068,7 +3070,6 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.Sprite.Cnds.CompareY,
 		C3.Plugins.Sprite.Acts.SetY,
 		C3.Plugins.Sprite.Exps.Y,
-		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.System.Exps.dt,
@@ -3092,7 +3093,6 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.Sprite.Cnds.IsVisible,
 		C3.Plugins.System.Acts.RestartLayout,
-		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Sprite.Cnds.CompareWidth,
 		C3.Behaviors.Sin.Acts.SetPhase,
@@ -3169,11 +3169,13 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		{Fade: 0},
 		{TutorialText: 0},
 		{TutorialTextBackground: 0},
+		{Text: 0},
 		{Speed: 0},
 		{Crash: 0},
 		{ProgressBarSpeed: 0},
 		{ProgressBarWidth: 0},
 		{TutorialSeen: 0},
+		{Timer: 0},
 		{Color: 0},
 		{QNumber: 0},
 		{TextPosition: 0},
@@ -3364,22 +3366,23 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 	}
 
 	self.C3_ExpressionFuncs = [
-		() => 3.5,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		() => 1.5,
 		() => 1,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(75, 240, 405);
 		},
 		() => -200,
+		() => 3.5,
 		() => "Tap and drag to change lanes and avoid the barriers.\n\nCollect gas to go faster!",
 		() => "Use the arrow keys to change lanes and avoid the barriers.\n\nCollect gas to go faster!",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
 		() => 0,
-		() => 100,
 		() => 500,
+		() => 100,
 		() => 1708,
 		p => {
 			const n0 = p._GetNode(0);
@@ -3425,7 +3428,6 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		() => "Obstacles",
 		() => 3,
 		() => 700,
-		() => 1.5,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(3, 6);
@@ -3442,7 +3444,7 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 			return () => (n0.ExpObject() + 20);
 		},
 		() => "Restart",
-		() => "Timer",
+		() => "ProgressBar",
 		() => 486,
 		() => 0.125,
 		() => -1,
