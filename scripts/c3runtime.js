@@ -3048,8 +3048,6 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.Browser,
 		C3.Plugins.PlatformInfo,
 		C3.Behaviors.Fade,
-		C3.Plugins.System.Cnds.EveryTick,
-		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Text.Acts.SetVisible,
@@ -3061,6 +3059,7 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.PlatformInfo.Cnds.IsOnMobile,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.System.Acts.SetVar,
@@ -3070,6 +3069,7 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.Sprite.Cnds.CompareY,
 		C3.Plugins.Sprite.Acts.SetY,
 		C3.Plugins.Sprite.Exps.Y,
+		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.Sprite.Acts.SetPos,
 		C3.Plugins.System.Exps.dt,
@@ -3366,10 +3366,6 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 	}
 
 	self.C3_ExpressionFuncs = [
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
-		},
 		() => 1.5,
 		() => 1,
 		p => {
@@ -3380,6 +3376,10 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		() => 3.5,
 		() => "Tap and drag to change lanes and avoid the barriers.\n\nCollect gas to go faster!",
 		() => "Use the arrow keys to change lanes and avoid the barriers.\n\nCollect gas to go faster!",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
 		() => 0,
 		() => 500,
 		() => 100,
