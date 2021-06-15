@@ -3056,7 +3056,6 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.System.Acts.CreateObject,
 		C3.Plugins.System.Exps.choose,
 		C3.Behaviors.Fade.Acts.RestartFade,
-		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.PlatformInfo.Cnds.IsOnMobile,
 		C3.Plugins.Text.Acts.SetText,
@@ -3093,6 +3092,7 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
 		C3.Plugins.Sprite.Cnds.IsVisible,
 		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Sprite.Cnds.CompareWidth,
 		C3.Behaviors.Sin.Acts.SetPhase,
@@ -3366,14 +3366,13 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 	}
 
 	self.C3_ExpressionFuncs = [
-		() => 1.5,
+		() => 3.5,
 		() => 1,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(75, 240, 405);
 		},
 		() => -200,
-		() => 3.5,
 		() => "Tap and drag to change lanes and avoid the barriers.\n\nCollect gas to go faster!",
 		() => "Use the arrow keys to change lanes and avoid the barriers.\n\nCollect gas to go faster!",
 		p => {
@@ -3428,6 +3427,7 @@ value:this._waitTime,onedit:v=>this._waitTime=v},{name:prefix+".properties.fade-
 		() => "Obstacles",
 		() => 3,
 		() => 700,
+		() => 1.5,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(3, 6);
